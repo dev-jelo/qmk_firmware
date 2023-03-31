@@ -32,7 +32,7 @@ enum anne_pro_layers {
 * |-----------------------------------------------------------------------------------------+
 * | Tab    |  q  |  w  |  e  |  r  |  t  |  y  |  u  |  i  |  o  |  p  |  [  |  ]  |   \    |
 * |-----------------------------------------------------------------------------------------+
-* | TG(FN3) |  a  |  s  |  d  |  f  |  g  |  h  |  j  |  k  |  l  |  ;  |  '  |    Enter    |
+* | LT()    |  a  |  s  |  d  |  f  |  g  |  h  |  j  |  k  |  l  |  ;  |  '  |    Enter    |
 * |-----------------------------------------------------------------------------------------+
 * | Shift      |  z  |  x  |  c  |  v  |  b  |  n  |  m  |  ,  |  .  |  /  |    Shift       |
 * |-----------------------------------------------------------------------------------------+
@@ -55,7 +55,7 @@ enum anne_pro_layers {
  [BASE] = LAYOUT_60_ansi( /* Base */
     KC_ESC,           KC_1,    KC_2,    KC_3, KC_4, KC_5, KC_6,   KC_7, KC_8, KC_9,    KC_0,             KC_MINS,          KC_EQL,        KC_BSPC,
     KC_TAB,           KC_Q,    KC_W,    KC_E, KC_R, KC_T, KC_Y,   KC_U, KC_I, KC_O,    KC_P,             KC_LBRC,          KC_RBRC,       KC_BSLS,
-    TG(FN3),          KC_A,    KC_S,    KC_D, KC_F, KC_G, KC_H,   KC_J, KC_K, KC_L,    KC_SCLN,          KC_QUOT,          KC_ENT,
+    LT(FN1, KC_NO),   KC_A,    KC_S,    KC_D, KC_F, KC_G, KC_H,   KC_J, KC_K, KC_L,    KC_SCLN,          KC_QUOT,          KC_ENT,
     KC_LSFT,                   KC_Z,    KC_X, KC_C, KC_V, KC_B,   KC_N, KC_M, KC_COMM, KC_DOT,           KC_SLSH,          RSFT_T(KC_UP),
     KC_LCTL,          KC_LGUI, KC_LALT,                   KC_SPC,             KC_RALT, LT(FN1, KC_LEFT), LT(FN2, KC_DOWN), RCTL_T(KC_RGHT)
  ),
@@ -128,7 +128,7 @@ enum anne_pro_layers {
 };
 // clang-format on
 
-// Toggle FN3 toggle indicator led 
+// Toggle FN3 toggle indicator led
 layer_state_t layer_state_set_user(layer_state_t state) {
   if (get_highest_layer(state) == FN3) {
     // Set the led to blue
@@ -148,4 +148,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   }
 
   return state;
+}
+
+// Toggle FN3 when tapped and activate FN1 when held
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case LT(FN1, KC_NO):
+      if (record->tap.count && record->event.pressed) {
+        layer_invert(FN3);
+        return false;
+      }
+  }
+  return true;
 }
