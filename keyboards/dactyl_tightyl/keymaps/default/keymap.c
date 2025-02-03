@@ -43,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Symbol Layer
      * ,------,------,------,------,------,------,                          ,------,------,------,------,------,------,
-     * |   ~  |   =  |   &  |   *  |   (  |   {  |                          |   }  |   )  |   '  |   :  |   ;  | ____ |
+     * |   ~  |   +  |   &  |   *  |   (  |   {  |                          |   }  |   )  |   '  |   :  |   ;  | ____ |
      * |------+------+------+------+------+------|                          |------+------+------+------+------+------|
-     * |   `  |   _  |   $  |   %  |   ^  |   [  |                          |   ]  | META | ALT  | CTRL | SHIFT|   |  |
+     * |   `  |   =  |   $  |   %  |   ^  |   [  |                          |   ]  | META | ALT  | CTRL | SHIFT|   |  |
      * |------+------+------+------+------+------|                          |------+------+------+------+------+------|
-     * |   +  |   -  |   !  |   @  |   #  |   <  |                          |   >  |   "  | ____ | ____ | ____ |   \  |
+     * |   _  |   -  |   !  |   @  |   #  |   <  |                          |   >  |   "  | ____ | ____ | ____ |   \  |
      * '------'------+------+------+------'------'                          '------'------+------+------+------'------'
      *               | ____ | ____ |                                                      | ____ | ____ |
      *               '------'------+------,------,------,            ,------,------,------+------'------'
@@ -56,9 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
 
     [SYM] = LAYOUT(
-        KC_TILD, KC_PEQL, KC_AMPR, KC_ASTR, KC_LPRN, KC_LCBR,                     KC_RCBR, KC_RPRN, KC_QUOT, KC_COLN, KC_SCLN, _______,
-         KC_GRV, KC_UNDS,  KC_DLR, KC_PERC, KC_CIRC, KC_LBRC,                     KC_RBRC,   MRGUI,   MRALT,   MRCTL,   MRSFT, KC_PIPE,
-        KC_PPLS, KC_MINS, KC_EXLM,   KC_AT, KC_HASH,   KC_LT,                       KC_GT,  KC_DQT, _______, _______, _______, KC_BSLS,
+        KC_TILD, KC_PPLS, KC_AMPR, KC_ASTR, KC_LPRN, KC_LCBR,                     KC_RCBR, KC_RPRN, KC_QUOT, KC_COLN, KC_SCLN, _______,
+         KC_GRV, KC_PEQL,  KC_DLR, KC_PERC, KC_CIRC, KC_LBRC,                     KC_RBRC,   MRGUI,   MRALT,   MRCTL,   MRSFT, KC_PIPE,
+        KC_UNDS, KC_MINS, KC_EXLM,   KC_AT, KC_HASH,   KC_LT,                       KC_GT,  KC_DQT, _______, _______, _______, KC_BSLS,
                           _______, _______,                                                         _______, _______,
                                             MO(NUM), _______, _______,   _______, _______, _______
     ),
