@@ -8,6 +8,10 @@
 #define NAV 2
 #define NUM 3
 
+#define TRI_LAYER_LOWER_LAYER 1 
+#define TRI_LAYER_UPPER_LAYER 2
+#define TRI_LAYER_ADJUST_LAYER 3 
+
 #define MRGUI OSM(MOD_RGUI)
 #define MRALT OSM(MOD_RALT)
 #define MRCTL OSM(MOD_RCTL)
@@ -38,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_CAPS,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                        KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
                           KC_LCTL, KC_LALT,                                                         KC_RCTL, KC_RALT,
-                                            MO(NAV),  KC_SPC, KC_LGUI,    KC_ENT,  KC_SPC, MO(SYM)
+                                            TL_UPPR,  KC_SPC, KC_LGUI,    KC_ENT,  KC_SPC, TL_LOWR
     ),
 
     /* Symbol Layer
@@ -51,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * '------'------+------+------+------'------'                          '------'------+------+------+------'------'
      *               | ____ | ____ |                                                      | ____ | ____ |
      *               '------'------+------,------,------,            ,------,------,------+------'------'
-     *                             |  NUM | ____ | ____ |            | ____ | ____ | ____ |
+     *                             | ____ | ____ | ____ |            | ____ | ____ | ____ |
      *                             '------'------'------'            '------'------'------'
      */
 
@@ -60,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_GRV, KC_PEQL,  KC_DLR, KC_PERC, KC_CIRC, KC_LBRC,                     KC_RBRC,   MRGUI,   MRALT,   MRCTL,   MRSFT, KC_PIPE,
         KC_UNDS, KC_MINS, KC_EXLM,   KC_AT, KC_HASH,   KC_LT,                       KC_GT,  KC_DQT, _______, _______, _______, KC_BSLS,
                           _______, _______,                                                         _______, _______,
-                                            MO(NUM), _______, _______,   _______, _______, _______
+                                            _______, _______, _______,   _______, _______, _______
     ),
 
     /* Nav Layer
@@ -73,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * '------'------+------+------+------'------'                          '------'------+------+------+------'------'
      *               | ____ | ____ |                                                      | ____ | ____ |
      *               '------'------+------,------,------,            ,------,------,------+------'------'
-     *                             | ____ | ____ | ____ |            | ____ | ____ |  NUM |
+     *                             | ____ | ____ | ____ |            | ____ | ____ | ____ |
      *                             '------'------'------'            '------'------'------'
      */
 
@@ -82,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       A(KC_TAB),   MLSFT,   MLCTL,   MLALT,   MLGUI, KC_VOLD,                  C(KC_LEFT),   KC_LEFT, KC_DOWN, KC_RGHT, C(KC_RGHT),  KC_DEL,
         KC_PSCR,   KC_NO,   KC_NO,   KC_NO, KC_MSTP, KC_MUTE,                     KC_PGDN, S(KC_TAB),   KC_NO,  KC_TAB,      KC_NO,  KC_INS,
                           _______, _______,                                                         _______, _______,
-                                            _______, _______, _______,   _______, _______, MO(NUM)
+                                            _______, _______, _______,   _______, _______, _______
     ),
 
     /* Num Layer
