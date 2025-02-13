@@ -24,6 +24,9 @@
         "enabled": true,
         "soft_serial_pin": "D2"
     },
+    "tapping": {
+        "permissive_hold": true
+    },
     "url": "",
     "usb": {
         "device_version": "1.0.0",
