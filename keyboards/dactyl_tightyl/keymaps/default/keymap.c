@@ -23,7 +23,7 @@
 #define MLSFT OSM(MOD_LSFT)
 
 // Home row mods
-#define HRM_A LGUI_T(KC_A)
+#define HRM_Z LGUI_T(KC_Z)
 #define HRM_S LALT_T(KC_S)
 #define HRM_D LCTL_T(KC_D)
 #define HRM_F LSFT_T(KC_F)
@@ -31,16 +31,16 @@
 #define HRM_J RSFT_T(KC_J)
 #define HRM_K RCTL_T(KC_K)
 #define HRM_L LALT_T(KC_L)
-#define HRM_SCN RGUI_T(KC_SCLN)
+#define HRM_SLS RGUI_T(KC_SLSH)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base
      * ,------,------,------,------,------,------,                          ,------,------,------,------,------,------,
      * | TAB  |   q  |   w  |   e  |   r  |   t  |                          |   y  |   u  |   i  |   o  |   p  | BSPC |
      * |------+------+------+------+------+------|                          |------+------+------+------+------+------|
-     * | CAPS | a(G) | s(A) | d(C) | f(S) |   g  |                          |   h  | j(S) | k(C) | l(A) | ;(G) |   '  |
+     * | CAPS |   a  | s(A) | d(C) | f(S) |   g  |                          |   h  | j(S) | k(C) | l(A) |   ;  |   '  |
      * |------+------+------+------+------+------|                          |------+------+------+------+------+------|
-     * | SHIFT|   z  |   x  |   c  |   v  |   b  |                          |   n  |   m  |   ,  |   .  |   /  | SHIFT|
+     * | SHIFT| z(G) |   x  |   c  |   v  |   b  |                          |   n  |   m  |   ,  |   .  | /(G) | SHIFT|
      * '------'------+------+------+------+------'                          '------'------+------+------+------'------'
      *               | CTRL |  ALT |                                                      |  ALT | CTRL |
      *               '------'------+------,------,------,            ,------,------,------+------'------'
@@ -50,8 +50,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [BASE] = LAYOUT(
          KC_TAB,   KC_Q,   KC_W,    KC_E,   KC_R,   KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-        KC_CAPS,  HRM_A,  HRM_S,   HRM_D,  HRM_F,   KC_G,                        KC_H,   HRM_J,   HRM_K,   HRM_L, HRM_SCN, KC_QUOT,
-        KC_LSFT,   KC_Z,   KC_X,    KC_C,   KC_V,   KC_B,                        KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
+        KC_CAPS,   KC_A,  HRM_S,   HRM_D,  HRM_F,   KC_G,                        KC_H,   HRM_J,   HRM_K,   HRM_L, KC_SCLN, KC_QUOT,
+        KC_LSFT,  HRM_Z,   KC_X,    KC_C,   KC_V,   KC_B,                        KC_N,    KC_M, KC_COMM,  KC_DOT, HRM_SLS, KC_RSFT,
                         KC_LCTL, KC_LALT,                                                       KC_RALT, KC_RCTL,
                                          TL_UPPR, KC_SPC, KC_LGUI,     KC_ENT, KC_SPC, TL_LOWR
     ),
@@ -60,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,------,------,------,------,------,------,                          ,------,------,------,------,------,------,
      * | ____ | ____ | ____ | ____ | ____ | ____ |                          | ____ | ____ | ____ | ____ | ____ | ____ |
      * |------+------+------+------+------+------|                          |------+------+------+------+------+------|
-     * | ____ |   a  |   s  |   d  |   f  | ____ |                          | ____ |   j  |   k  |   l  |   ;  | ____ |
+     * | ____ | ____ |   s  |   d  |   f  | ____ |                          | ____ |   j  |   k  |   l  | ____ | ____ |
      * |------+------+------+------+------+------|                          |------+------+------+------+------+------|
-     * | ____ | ____ | ____ | ____ | ____ | ____ |                          | ____ | ____ | ____ | ____ | ____ | ____ |
+     * | ____ |   z  | ____ | ____ | ____ | ____ |                          | ____ | ____ | ____ | ____ |   /  | ____ |
      * '------'------+------+------+------+------'                          '------'------+------+------+------'------'
      *               | ____ | ____ |                                                      | ____ | ____ |
      *               '------'------+------,------,------,            ,------,------,------+------'------'
@@ -72,8 +72,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NO_HRM] = LAYOUT(
         _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
-        _______,    KC_A,    KC_S,    KC_D,    KC_F, _______,                        _______,    KC_J,    KC_K,    KC_L, KC_SCLN, _______,
-        _______, _______, _______, _______, _______, _______,                        _______, _______, _______, _______, _______, _______,
+        _______, _______,    KC_S,    KC_D,    KC_F, _______,                        _______,    KC_J,    KC_K,    KC_L, _______, _______,
+        _______,    KC_Z, _______, _______, _______, _______,                        _______, _______, _______, _______, KC_SLSH, _______,
                           _______, _______,                                                            _______, _______,
                                             _______, _______, _______,      _______, _______, _______
     ),
